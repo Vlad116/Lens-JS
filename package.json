@@ -1,0 +1,48 @@
+{
+  "name": "optical-lens",
+  "version": "0.0.1",
+  "description": "Library for calculating optical lenses",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "browser": "dist/browser/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "rollup -c -w -bundleConfigAsCjs",
+    "build": "rollup -c --bundleConfigAsCjs",
+    "prebuild:types": "rimraf ./build",
+    "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
+    "predocs": "rimraf ./docs",
+    "docs": "typedoc src --out docs",
+    "clean": "rimraf ./build ./dist ./docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D4nisBag/Lens-JS.git"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "optical lenses",
+    "calculation optical lenses"
+  ],
+  "author": "Bagautdinov Danis, Alekseev Vladislav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D4nisBag/Lens-JS/issues"
+  },
+  "homepage": "https://github.com/D4nisBag/Lens-JS#readme",
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-terser": "^0.4.1",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "eslint": "^8.38.0",
+    "rollup": "^3.20.2",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typedoc": "^0.24.4",
+    "typescript": "^5.0.4"
+  }
+}
