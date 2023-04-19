@@ -1,1 +1,1 @@
-# Lens-JS
+# Lens-JS (optical-lens)
