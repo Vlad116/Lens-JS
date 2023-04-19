@@ -18,8 +18,8 @@ export class Lens {
     this.r1 = r1;
     this.r2 = r2;
   }
-  //в метрах
-  getFocalLength() {
+  //в диоптриях
+  getOpticalPower() {
     return (
       (this.refractiveIndexOfLens - this.refractiveIndexOfMedium) *
         (1 / this.r1 - 1 / this.r2) +
@@ -31,11 +31,11 @@ export class Lens {
           this.r2)
     );
   }
-  //в диоптриях
-  getOpticalPower() {
-    return 1 / this.getFocalLength();
-  }
   //в метрах
+  getFocalLength() {
+    return this.refractiveIndexOfMedium / this.getOpticalPower();
+  }
+  //в метрах(расстояние до предмета от линзы)
   getImageScale(distanceToObj: number) {
     const s2 = this.getFocalLength() / (distanceToObj - this.getFocalLength());
     return s2;
@@ -51,8 +51,9 @@ export class Lens {
         if (rangeToPreviousLens == 0) {
           totalOpticalPower += opticalPower;
         } else {
-          totalOpticalPower =
-            totalOpticalPower * opticalPower -
+          otalOpticalPower =
+            totalOpticalPower +
+            opticalPower -
             rangeToPreviousLens * totalOpticalPower * opticalPower;
         }
       }
