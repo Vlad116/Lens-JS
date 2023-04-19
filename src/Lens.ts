@@ -51,7 +51,7 @@ export class Lens {
         if (rangeToPreviousLens == 0) {
           totalOpticalPower += opticalPower;
         } else {
-          otalOpticalPower =
+          totalOpticalPower =
             totalOpticalPower +
             opticalPower -
             rangeToPreviousLens * totalOpticalPower * opticalPower;
