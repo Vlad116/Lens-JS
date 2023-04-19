@@ -1,6 +1,6 @@
 {
   "name": "optical-lens",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Library for calculating optical lenses",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "rollup -c -w -bundleConfigAsCjs",
+    "dev": "rollup -c -w --bundleConfigAsCjs",
     "build": "rollup -c --bundleConfigAsCjs",
     "prebuild:types": "rimraf ./build",
     "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",

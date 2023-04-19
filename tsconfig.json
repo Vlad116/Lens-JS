@@ -7,18 +7,17 @@
       ],
       "allowJs": true,
       "esModuleInterop": true,
-      "module": "CommonJS",
+      "module": "nodenext",
       "moduleResolution": "node",
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
       "strict": true,
       "target": "ES6",
+      "declaration": true,
+      "declarationDir": "dist/types"
     },
-    "exclude": [
-      "node_modules"
-    ],
+    "exclude": ["node_modules", "build", "dist", "rollup.config.mjs"],
     "include": [
-      "**/*.ts",
-      "**/*.tsx"
+      "src"
     ]
 }
