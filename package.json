@@ -2,11 +2,14 @@
   "name": "optical-lens",
   "version": "0.0.1",
   "description": "Library for calculating optical lenses",
-  "private": "false",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "browser": "dist/browser/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "rollup -c -w -bundleConfigAsCjs",
     "build": "rollup -c --bundleConfigAsCjs",
@@ -27,7 +30,7 @@
     "optical lenses",
     "calculation optical lenses"
   ],
-  "author": "Bagautdinov Danis, Alekseev Vladislav",
+  "author": "Alekseev Vladislav, Bagautdinov Danis",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Vlad116/Lens-JS/issues"
