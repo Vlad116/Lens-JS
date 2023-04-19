@@ -2,6 +2,7 @@
   "name": "optical-lens",
   "version": "0.0.1",
   "description": "Library for calculating optical lenses",
+  "private": "false",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "browser": "dist/browser/index.js",
@@ -18,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/D4nisBag/Lens-JS.git"
+    "url": "git+https://github.com/Vlad116/Lens-JS.git"
   },
   "keywords": [
     "npm",
@@ -29,16 +30,18 @@
   "author": "Bagautdinov Danis, Alekseev Vladislav",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/D4nisBag/Lens-JS/issues"
+    "url": "https://github.com/Vlad116/Lens-JS/issues"
   },
-  "homepage": "https://github.com/D4nisBag/Lens-JS#readme",
+  "homepage": "https://github.com/Vlad116/Lens-JS",
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.34.4",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.0",
     "eslint": "^8.38.0",
+    "rimraf": "^5.0.0",
     "rollup": "^3.20.2",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
