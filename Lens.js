@@ -6,15 +6,15 @@ class Lens {
       this.r1 = r1;
       this.r2 = r2;
     }
-    //в метрах
-    getFocalLength() {
-      return (this.refractiveIndexOfLens - this.refractiveIndexOfMedium) * (1 / this.r1 - 1 / this.r2) + ((this.refractiveIndexOfLens - this.refractiveIndexOfMedium) * this.thickness) / (this.refractiveIndexOfLens * this.refractiveIndexOfMedium * this.r1 * this.r2);
-    }
     //в диоптриях
     getOpticalPower() {
-      return 1 / this.getFocalLength();
+      return (this.refractiveIndexOfLens - this.refractiveIndexOfMedium) * (1 / this.r1 - 1 / this.r2) + ((this.refractiveIndexOfLens - this.refractiveIndexOfMedium) * this.thickness) / (this.refractiveIndexOfLens * this.refractiveIndexOfMedium * this.r1 * this.r2);
     }
     //в метрах
+    getFocalLength() {
+      return this.refractiveIndexOfMedium / this.getOpticalPower();
+    }
+    //в метрах(расстояние до предмета от линзы)
     getImageScale(distanceToObj) {
       const s2 = this.getFocalLength()/(distanceToObj - this.getFocalLength());
       return s2;
@@ -30,7 +30,7 @@ class Lens {
             if(rangeToPreviousLens == 0) {
                 totalOpticalPower += opticalPower;
             } else {
-                totalOpticalPower = totalOpticalPower * opticalPower - rangeToPreviousLens * totalOpticalPower * opticalPower;
+                totalOpticalPower = totalOpticalPower + opticalPower - rangeToPreviousLens * totalOpticalPower * opticalPower;
             }
           }
         }
