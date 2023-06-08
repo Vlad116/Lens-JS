@@ -1,9 +1,9 @@
-import { Lens } from "./Lens";
+import { LensCalculator } from "./LensCalculator";
 
 //оптическая сила измеряется в диоптриях, расстояние считается в метрах
-const firstTestLens = new Lens(1.5, 1, 0.03, 0.1, 0.1);
-const secondTestLens = new Lens(1.5, 1, 0.04, 0.25, 0.25);
-const thirdTestLens = new Lens(1.5, 1, 0.05, 0.15, 0.15);
+const firstTestLens = new LensCalculator(1.5, 1, 0.03, 0.1, 0.1);
+const secondTestLens = new LensCalculator(1.5, 1, 0.04, 0.25, 0.25);
+const thirdTestLens = new LensCalculator(1.5, 1, 0.05, 0.15, 0.15);
 console.log(
   `Фокусное расстояние первой линзы: ${firstTestLens.getFocalLength()} м`
 );

@@ -1,4 +1,6 @@
-export class Lens {
+import { ILense } from "./types/types";
+
+export class LensCalculator {
   refractiveIndexOfLens: number;
   refractiveIndexOfMedium: number;
   thickness: number;
@@ -18,6 +20,7 @@ export class Lens {
     this.r1 = r1;
     this.r2 = r2;
   }
+
   //в диоптриях
   getOpticalPower() {
     return (
@@ -31,33 +34,34 @@ export class Lens {
           this.r2)
     );
   }
+
   //в метрах
   getFocalLength() {
     return this.refractiveIndexOfMedium / this.getOpticalPower();
   }
+
   //в метрах(расстояние до предмета от линзы)
   getImageScale(distanceToObj: number) {
     const s2 = this.getFocalLength() / (distanceToObj - this.getFocalLength());
     return s2;
   }
+
   //в диоптриях
-  getCombinedOpticalPower(lenses: any) {
+  getCombinedOpticalPower(lenses: Array<ILense> ) {
     let totalOpticalPower = lenses[0].opticalPower;
-    for (let i = 0; i < lenses.length; i++) {
-      const lens = lenses[i];
-      const rangeToPreviousLens = lens.rangeToPreviousLens;
-      const opticalPower = lens.opticalPower;
-      if (i != 0) {
+
+    lenses.forEach((lense, index) => {
+      const rangeToPreviousLens = lense.rangeToPreviousLens;
+      const opticalPower = lense.opticalPower;
+      if (index != 0) {
         if (rangeToPreviousLens == 0) {
           totalOpticalPower += opticalPower;
         } else {
-          totalOpticalPower =
-            totalOpticalPower +
-            opticalPower -
-            rangeToPreviousLens * totalOpticalPower * opticalPower;
+          totalOpticalPower += (opticalPower - rangeToPreviousLens * totalOpticalPower * opticalPower);
         }
       }
-    }
+    })
+
     return totalOpticalPower;
   }
 }

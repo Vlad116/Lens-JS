@@ -1,1 +1,1 @@
-export { Lens } from './Lens'
+export { LensCalculator as Lens } from './LensCalculator'
